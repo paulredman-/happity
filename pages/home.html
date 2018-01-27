@@ -1,0 +1,41 @@
+<div  class='home'>
+    <form data-ng-submit='add_message()'>
+        <div class='row' >
+            <div class='col-md-2'>
+                <label>Name</label>
+            </div>
+            <div class='col-md-10'>
+                <input ng-model='name' type='text' />
+            </div>
+        </div>
+        <div class='row' >
+            <div class='col-md-2'>
+                <label>Message</label>
+            </div>
+            <div class='col-md-10'>
+                <textarea ng-model='message' cols='80' rows='5'></textarea>
+            </div>
+        </div>
+        <div class='row' >
+            <div class='col-md-2'>
+            </div>
+            <div class='col-md-10'>
+                <input type='submit' value='Add Message' />
+            </div>
+        </div>
+    </form>
+    <div class='row' ></div>
+    <div class='row' data-ng-repeat='message in messages | orderBy : "-date"'>
+        <div class='row' >
+            <div class='col-md-3'>{{message.name}}</div>
+            <div class='col-md-6'></div>
+            <div class='col-md-3'>{{message.date}}</div>
+        </div>
+        <div class='row' >
+            <div class='col-md-2'><input type='button' value='Delete Message' data-ng-click='delete_message(message.id)' /> </div>
+            <div class='col-md-9'>{{message.message}}</div>
+            <div class='col-md-1'></div>
+        </div>
+    </div>
+
+</div>
